@@ -1,15 +1,22 @@
 # ERD Maker 📐
 
-A fast, lightweight, and modern Entity-Relationship Diagram (ERD) editor that runs entirely in your browser with **zero dependencies**. Design database schemas visually, establish relationships with automatic cardinality lines, organize tables into domain groups, customize themes and colors, and export directly to SQL, high-resolution PNG, SVG, or JSON.
+A fast, lightweight, and modern Entity-Relationship Diagram (ERD) editor that runs entirely in your browser with **zero dependencies**. Design database schemas visually, establish relationships with automatic cardinality lines, organize tables into domain groups, customize themes and colors, manage multiple saved diagrams locally, and export directly to SQL, high-resolution PNG, SVG, or JSON.
 
 ---
 
 ## ✨ Features
 
 - **⚡ Zero Setup & Self-Contained**: Single-file web application (`erd-maker.html`). No build tools, Node servers, or external libraries required.
+- **📁 Multi-Diagram Local Browser Storage**:
+  - Save, manage, switch, duplicate, and rename multiple diagrams locally inside your browser's `localStorage` with zero cloud or backend dependencies.
+  - **Live Auto-Save & Status Pill**: Continuously auto-saves every change with a real-time status indicator (`● Auto-saved` / `● Saving...`).
+  - **Editable Diagram Title**: Rename your diagram directly from the toolbar.
+  - **Saved Diagrams Library**: Search, view stats (tables, relationships, groups), duplicate, export, or delete diagrams from a modal manager.
+  - **Starter Templates**: Instantly start with pre-built schema templates (**Blank Canvas**, **E-Commerce**, **Blog / CMS**, and **Social App**).
+  - **Quick Save Shortcut**: Press <kbd>Ctrl+S</kbd> / <kbd>Cmd+S</kbd> anytime for instant save and toast notification.
 - **🌓 White Background & Dark Mode Theming**:
   - One-click toggle between sleek dark mode and crisp white-background light mode.
-  - Automatically adjusts canvas grid dots, table card contrasts, shadows, and SVG relationship lines.
+  - Automatically adjusts canvas grid dots, table card contrasts, shadows, modal styling, and SVG relationship lines.
   - Theme preference is saved locally across sessions.
 - **🎨 Custom Table & Group Colors**:
   - Click the swatch on any table or group header to pick from 12 modern palette presets or choose any custom hex color with the native color picker.
@@ -27,11 +34,10 @@ A fast, lightweight, and modern Entity-Relationship Diagram (ERD) editor that ru
   - **Export as Image (PNG)**: Renders a 2x high-resolution (Retina quality) image with diagram bounding box and active theme background.
   - **Export as SVG**: Generates clean, scalable vector graphics suitable for Figma, Illustrator, and documentation.
   - **Export as SQL**: Generates ANSI-compliant `CREATE TABLE` and `ALTER TABLE ... ADD CONSTRAINT FOREIGN KEY` DDL scripts.
-  - **Export as JSON / Import JSON**: Losslessly save and reload diagrams including tables, fields, types, positions, colors, groups, and relationships.
+  - **Export as JSON / Import JSON**: Losslessly save and reload diagrams into your local diagram library.
 - **🔍 Canvas Navigation**:
   - Smooth pan and pinch/wheel zoom (30% to 220%).
   - **Fit to Screen**: Instantly centers and scales the entire diagram into view.
-- **🔒 Local Storage Auto-Save**: Your work is automatically saved in your browser's `localStorage`.
 
 ---
 
@@ -57,6 +63,9 @@ No installation or build steps are necessary:
 
 | Action | Control |
 | :--- | :--- |
+| **Quick Save** | <kbd>Ctrl+S</kbd> / <kbd>Cmd+S</kbd> or click **💾 Save** |
+| **Manage Diagrams** | Click **📁 Diagrams** in toolbar |
+| **Rename Diagram** | Click & type in the toolbar title input or click **Rename** in Diagrams modal |
 | **Add Table** | Click **+ Table** in the toolbar, or **Double-Click** empty canvas |
 | **Add Group** | Click **+ Group** in toolbar (wraps selected table or creates in center) |
 | **Pan Canvas** | Click & drag empty canvas or group background |
@@ -68,6 +77,7 @@ No installation or build steps are necessary:
 | **Move Group + Tables** | Click and drag the group's header bar |
 | **Resize Group** | Drag the bottom-right corner handle of the group |
 | **Delete Table / Group** | Select table or group and press <kbd>Delete</kbd> or <kbd>Backspace</kbd>, or click `✕` |
+| **Close Modal / Popover** | Press <kbd>Escape</kbd> or click `✕` |
 | **Toggle Theme** | Click the **☀️ Light / 🌙 Dark** button in the toolbar |
 
 ---
@@ -77,6 +87,7 @@ No installation or build steps are necessary:
 - **HTML5**: Semantic layout, SVG canvas, and standard Canvas 2D API for high-resolution rendering.
 - **Vanilla CSS**: CSS Custom Properties (Variables), `color-mix`, CSS Grid, and Flexbox for modern responsive styling.
 - **Vanilla JavaScript (ES6+)**: Zero framework overhead, fast DOM updates, pure client-side state machine, and analytic geometry calculations.
+- **Storage Engine**: Native `localStorage` multi-document store with automatic legacy schema migration.
 - **Typography**: Google Fonts (*Inter* for UI and *IBM Plex Mono* for schema code & fields).
 
 ---
